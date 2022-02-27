@@ -1,0 +1,20 @@
+{
+    "name": "davidkiarie/next-layer-jwt-package",
+    "description": "This package is for internal use for authentication",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Davidkiarie\\NextLayerJwtPackage\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "david-macharia",
+            "email": "davidkiarie5861@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+       
+    }
+}

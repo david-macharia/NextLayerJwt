@@ -16,5 +16,13 @@
     "minimum-stability": "dev",
     "require": {
        
+    } ,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Davidkiarie\\NextLayerJwtPackage\\Providers\\NextLayerJwtServiceProvider"
+            ] 
+            
+        }
     }
 }

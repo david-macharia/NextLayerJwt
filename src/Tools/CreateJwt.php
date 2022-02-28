@@ -6,7 +6,6 @@ namespace Davidkiarie\NextLayerJwtPackage\Tools;
 use App\Rules\UserIdExistInEitherTable;
 use Carbon\Carbon;
 use Davidkiarie\NextLayerJwtPackage\VendorSrc\JWT;
-use Nette\Utils\Random;
 
 trait CreateJwt
 {
@@ -16,7 +15,7 @@ trait CreateJwt
     $key = env("JWT_SECRET");
     $payload = array_merge($payload, [
 
-      "token_id" => Random::generate(),
+      "token_id" => rand(),
       "iat" => Carbon::now()->timestamp,
       "exp" => Carbon::now()->addHour()->timestamp,
     ]);
@@ -29,7 +28,7 @@ trait CreateJwt
     $payload = array_merge($payload, [
       "token_type" => "refreshToken",
 
-      "token_id" => Random::generate(),
+      "token_id" => rand(),
       "iat" => Carbon::now()->timestamp,
       "exp" => Carbon::now()->addYear()->timestamp,
 

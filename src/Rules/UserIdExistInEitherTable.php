@@ -3,6 +3,7 @@
 
 namespace Davidkiarie\NextLayerJwtPackage\Rules;
 
+use Davidkiarie\NextLayerJwtPackage\Models\GlobalUser;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\DB;
@@ -19,6 +20,7 @@ class UserIdExistInEitherTable implements Rule
      */
     public function __construct(FormRequest $request)
     {
+       
         $this->request=$request;
     }
 
@@ -68,23 +70,5 @@ class UserIdExistInEitherTable implements Rule
     public function message()
     {
         return 'Client id or marchant id is wrong';
-    }
-}
- class GlobalUser{
-    public  $user_type;
-    public $user_id;
-    public $query;
-    public function isClient():bool{
-        if($this->user_type=="client"){
-            return true;
-        }
-        return false;
-
-    }
-    public function isMerchant():bool{
-        if($this->user_type=="merchant"){
-           return true;
-        }
-        return false;
     }
 }

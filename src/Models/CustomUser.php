@@ -1,14 +1,15 @@
 <?php
 namespace Davidkiarie\NextLayerJwtPackage\Models;
 
-use Davidkiarie\NextLayerJwtPackage\Rules\GlobalUser;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
+use Davidkiarie\NextLayerJwtPackage\Models\GlobalUser;
 class CustomUser{
     public static function loadGlobalUserwithValue($value){
         if(!isset($value)){
             return false;
          }
+        
         
             $globalUser= new GlobalUser();
           $result=DB::table('merchants_data')->where('merchant_id','=',$value)->first();

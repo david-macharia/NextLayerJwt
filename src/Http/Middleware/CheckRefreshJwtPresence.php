@@ -14,7 +14,6 @@ use Closure;
 use Davidkiarie\NextLayerJwtPackage\Tools\CreateJwt;
 use Exception;
 use Illuminate\Http\Request;
-use Nette\Utils\Random;
 
 class CheckRefreshJwtPresence
 {
@@ -62,7 +61,7 @@ class CheckRefreshJwtPresence
                              }
                             $paload=[
                                 "token_type"=>"Bearer",
-                                "token_id"=>Random::generate(),
+                                "token_id"=>rand(),
                                 "iat"=>Carbon::now()->timestamp,
                                 "exp"=> Carbon::now()->addHour()->timestamp,
                                 "user_type"=> $decoded->user_type,

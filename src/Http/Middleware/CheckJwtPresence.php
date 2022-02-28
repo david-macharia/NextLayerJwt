@@ -5,7 +5,6 @@ namespace Davidkiarie\NextLayerJwtPackage\Http\Middleware;
 
 use Closure;
 use Davidkiarie\NextLayerJwtPackage\Models\CustomUser;
-use Davidkiarie\NextLayerJwtPackage\Models\GlobalUser;
 use Davidkiarie\NextLayerJwtPackage\VendorSrc\ExpiredException;
 use Davidkiarie\NextLayerJwtPackage\VendorSrc\JWT;
 use Davidkiarie\NextLayerJwtPackage\VendorSrc\Key;

@@ -37,6 +37,7 @@ class CheckRefreshJwtPresence
 
        
         
+        
         $token = $request->header("Authorization");
         if (!isset($token)) {
             return response()->json(["message" => "Please provide Authorisation  Bearer token  Header"], 401);

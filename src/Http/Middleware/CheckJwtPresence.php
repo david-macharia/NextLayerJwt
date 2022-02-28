@@ -4,6 +4,8 @@
 namespace Davidkiarie\NextLayerJwtPackage\Http\Middleware;
 
 use Closure;
+use Davidkiarie\NextLayerJwtPackage\Models\CustomUser;
+use Davidkiarie\NextLayerJwtPackage\Models\GlobalUser;
 use Davidkiarie\NextLayerJwtPackage\VendorSrc\ExpiredException;
 use Davidkiarie\NextLayerJwtPackage\VendorSrc\JWT;
 use Davidkiarie\NextLayerJwtPackage\VendorSrc\Key;
@@ -59,8 +61,14 @@ class CheckJwtPresence
                     try {
                       
                         $decoded = JWT::decode($jwt, new Key($key, 'HS256'));
+                        if(CustomUser::loadGlobalUserwithValue($decoded->user_id)){
+                            return $next($request);
+                        }else{
+                            return response()->json(["Message" => "An Authorized"], 401);
+                        }
                         
-                        return $next($request);
+                        
+                        
                     } catch (ExpiredException $e) {
                         return response()->json(["Message" => "Token Expired"], 401);
                     } catch (SignatureInvalidException $e) {
